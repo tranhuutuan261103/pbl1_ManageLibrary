@@ -1,0 +1,34 @@
+3.3
+1/ Thêm vào đầu:
+Việc thêm vào đầu là việc cập nhật thằng head. Ta gọi Node mới(temp), ta có:
+-Nếu head đang trỏ tới NULL, nghĩa là linked list đang trống,Node mới thêm vào sẽ làm head luôn.
+-Ngược lại, ta phải thay thế bằng head cũ bằng head mới. Viêc này phải theo thứ tự như sau:
++Cho temp->next=a
++a=temp
+Độ phức tạp của thuật toán: O(1)
+
+2/ Tìm kiếm 1 cuốn sách:
+Đầu tiên ta nhập tên sách cần tìm và biến count=0;
+Ý tưởng tìm kiếm phần tử cũng là duyệt danh sách, duyệt từng Node cho đến cuối danh sách (NULL).
+Nếu như Node nào có tên sách giống với tên sách cần tìm (strcmp(s,a->ten_sach)==0) ta in nó ra màn hình (đồng thời tăng biến đếm count lên +1)
+Sau khi kết thúc duyệt, nếu count=0 thì ta không tìm thấy cuốn sách cần tìm.
+Độ phức tap của thuật toán: O(n) vì duyệt từ đầu đến cuối danh sách
+
+3/ Xóa 1 cuốn sách ở cuối danh sách:
+-Nếu head đang trỏ tới NULL, nghĩa là linked list đang trống => Danh sách rỗng không còn gì để xóa.
+-Ngược lại, ta phải duyệt đến phần tử cuối cùng, ta cho phần tử đó bằng NULL. Ta thực hiện nó như sau:
+book before = NULL, after = a;
+while (after->next != NULL)
+{
+    before = after;
+    after = after->next;
+}
+if (before == NULL)
+{
+    a = NULL;
+}
+else
+{
+    before->next = NULL;
+}
+Độ phức tạp của thuật toán:O(n)
